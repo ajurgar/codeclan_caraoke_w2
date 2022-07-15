@@ -1,14 +1,16 @@
 class Room:
-    def __init__(self, name, till):
+    def __init__(self, name, capacity, fee, till):
         self.name = name
-        # self.capacity = capacity
+        self.capacity = capacity
         self.till = till
-        self.playlist = []
+        self.fee = fee
+        self.playlist = [] 
         self.guest_list = []
     
-    def add_guest(self, guest):
-        self.guest_list.append(guest)
-    
+    def checked_in (self, guest):
+            if self.guest_count() < self.capacity:
+                self.guest_list.append(guest)
+
     def checked_out (self):
         self.guest_list.pop()
     
@@ -17,12 +19,23 @@ class Room:
 
     def add_song (self, song):
         self.playlist.append(song)
+    
+    def charge_fee(self, fee):
+        self.till += fee
 
-    def checked_in (self, guest):
-        if self.guest_count <= 2:
-         return self.guest_list.append(guest)
-        else:
-            return False
+
+    
+    
+    # def set_limit_of_entry(self, guest):
+    #    for guest in self.guest_list:
+    #     if self.guest_count <= self.capacity:
+    #         self.guest_list.append(guest)
+    #     else:
+    #         return False
+            
+
+
+   
 
     # def limit_entry(self):
     #     self.room.checked_in
