@@ -17,7 +17,3 @@ class Guest:
         for song in room:
             if fav_song == song.name:
                 return "Whooo!"
-# def check_if_fav_song_is_in_room(self, room, fav_song):
-#         for song in room:
-#             if fav_song == song.name:
-#              return "Whoo"

@@ -25,30 +25,3 @@ class Room:
     
     def limit_reached (self):
         return self.guest_count() < self.capacity
-
-    
-
-
-    
-    
-    # def set_limit_of_entry(self, guest):
-    #    for guest in self.guest_list:
-    #     if self.guest_count <= self.capacity:
-    #         self.guest_list.append(guest)
-    #     else:
-    #         return False
-            
-
-
-   
-
-    # def limit_entry(self):
-    #     self.room.checked_in
-    #     if self.capacity > 100:
-    #         return True
-    #     else:
-    #         return False
-
-    
-
-            

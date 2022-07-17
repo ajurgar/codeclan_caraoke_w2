@@ -16,11 +16,7 @@ class TestGuest (unittest.TestCase):
 
         self.playlist = [self.song1, self.song2, self.song3]
     
-    # Why can I not iterate in self.room.playlist from room.py? 
-    # -- room is not in Guest object   
-    # So I don't need to create a new playlist in guest.py
-        
-    
+
     def test_guest_has_name(self):
         self.assertEqual("Michael", self.guest.name)
 
@@ -36,7 +32,7 @@ class TestGuest (unittest.TestCase):
         self.guest.pay_fee(self.room.fee)
         self.assertEqual(20, self.guest.wallet)
 
-    def test_guest_can_pay_fee_if_they_dont_have_money(self):
+    def test_guest_cant_pay_fee_if_they_dont_have_money(self):
         guest = Guest("Gustavo", "Rock", 10)
         guest.pay_fee(self.room.fee)
         self.assertEqual(10, guest.wallet)
@@ -47,6 +43,3 @@ class TestGuest (unittest.TestCase):
         self.room.add_song(self.song2)
         self.room.add_song(self.song3)
         self.assertEqual("Whooo!", self.guest.fav_song_in_room(self.room.playlist, self.guest.favourite_song))
-
-    # def test_sufficient_money_for_fee(self):
-    #     self.assertEqual(True, self.customer.sufficient_money())

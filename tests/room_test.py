@@ -61,11 +61,9 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(True, self.room.limit_reached())
     
     def test_limit_of_guest_check_ins(self):
-        # self.guest.guest_count(98)
         self.room.checked_in(self.guest1)
         self.room.checked_in(self.guest2)
         self.room.checked_in(self.guest3)
-        # self.assertEqual(False, room.checked_in(self.guest3))
         self.assertEqual(2, self.room.guest_count())
     
   
