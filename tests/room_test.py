@@ -39,8 +39,9 @@ class TestRoom(unittest.TestCase):
 
     def test_check_out_guest_to_room(self):
         self.room.checked_in(self.guest1)
-        self.room.checked_out()
-        self.assertEqual(0, self.room.guest_count())
+        self.room.checked_in(self.guest2)
+        self.room.checked_out(self.guest1)
+        self.assertEqual(1, self.room.guest_count())
     
     def test_add_songs_to_room(self):
         self.room.add_song(self.song1.name)
@@ -61,21 +62,9 @@ class TestRoom(unittest.TestCase):
         # self.assertEqual(False, room.checked_in(self.guest3))
         self.assertEqual(2, self.room.guest_count())
     
-    def test_if_favourite_song_is_in_playlist(self):
-        self.guest = Guest("Jamie", "Let It Be", 50)
-        self.room.add_song(self.song1)
-        self.room.add_song(self.song2)
-        self.room.add_song(self.song3)
-        self.guest.fav_song_matched(self.song1)
-        # self.room.fav_song_matched(self.song1)
-        self.assertEqual("Whooo!", self.room.fav_song_matched(self.song1))
-    
-    
-
-    # def test_pub_cannot_serve_drink(self):
-    #     self.pub.add_drink(self.drink_1)
-    #     self.pub.add_drink(self.drink_2)
-    #     self.pub.serve(self.customer_1, self.drink_1)
-    #     self.assertEqual(8.00, self.customer_1.wallet)
-    #     self.assertEqual(102.00, self.pub.till)
-    #     self.assertEqual(0, self.pub.stock_level(self.drink_1))
+  
+    # def test_can_track_expenses_of_guest(self):
+    #     # self.room.checked_in(self.guest1)
+    #     # self.room.charge_fee(self.room.fee)
+    #     # self.guest1.pay_fee(self.room.fee)
+    #     self.room.charged_after_checked_in(self.room.fee, self.guest)

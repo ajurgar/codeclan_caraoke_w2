@@ -1,3 +1,5 @@
+from classes.room import Room
+
 class Guest:
     def __init__(self, name, favourite_song, wallet):
         self.name = name
@@ -11,7 +13,11 @@ class Guest:
     def sufficient_money(self, fee):
         return self.wallet >= fee
     
-    def fav_song_matched (self, playlist):
+    def fav_song_in_room (self, room, fav_song):
         for song in room:
-            if song == self.favourite_song:
+            if fav_song == song.name:
                 return "Whooo!"
+# def check_if_fav_song_is_in_room(self, room, fav_song):
+#         for song in room:
+#             if fav_song == song.name:
+#              return "Whoo"

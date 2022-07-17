@@ -11,8 +11,8 @@ class Room:
             if self.guest_count() < self.capacity:
                 self.guest_list.append(guest)
 
-    def checked_out (self):
-        self.guest_list.pop()
+    def checked_out (self, guest):
+        self.guest_list.remove(guest)
     
     def guest_count (self):
         return len(self.guest_list)
@@ -22,6 +22,8 @@ class Room:
     
     def charge_fee(self, fee):
         self.till += fee
+
+    
 
 
     
