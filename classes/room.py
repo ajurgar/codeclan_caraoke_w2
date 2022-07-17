@@ -8,7 +8,7 @@ class Room:
         self.guest_list = []
     
     def checked_in (self, guest):
-            if self.guest_count() < self.capacity:
+            if self.limit_reached():
                 self.guest_list.append(guest)
 
     def checked_out (self, guest):
@@ -22,6 +22,9 @@ class Room:
     
     def charge_fee(self, fee):
         self.till += fee
+    
+    def limit_reached (self):
+        return self.guest_count() < self.capacity
 
     
 

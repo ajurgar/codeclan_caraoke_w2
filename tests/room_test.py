@@ -13,6 +13,8 @@ class TestRoom(unittest.TestCase):
         self.song3 = Song("Despacito")
 
         self.room = Room("Rock", 2, 20, 500)
+        self.room2 = Room("EDM", 2, 20, 500)
+        self.room3 = Room("Pop", 2, 30, 500)
 
         self.guest1 = Guest("Michael", "Let It Be", 50)
         self.guest2 = Guest("Alex", "Gecko", 40)
@@ -53,6 +55,10 @@ class TestRoom(unittest.TestCase):
         self.guest1.pay_fee(self.room.fee)
         self.assertEqual(520, self.room.till)
         self.assertEqual(30, self.guest1.wallet)
+
+    def test_limit_reached(self):
+        self.room.checked_in(self.guest1)
+        self.assertEqual(True, self.room.limit_reached())
     
     def test_limit_of_guest_check_ins(self):
         # self.guest.guest_count(98)
